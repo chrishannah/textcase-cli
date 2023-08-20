@@ -5,6 +5,12 @@
 
 This tool takes the core functionality of Text Case, and packages it directly inside a command line tool that is available for free.
 
+## Download
+
+You can download the executable from the [latest release][release].
+
+Hopefully, this will eventually be available on Homebrew as a cask.
+
 ## Usage
 
 ```bash
@@ -85,3 +91,4 @@ textcase [-v | --version] [-l | --listFormats] [-h | --help] [--format <format>]
 - Strikethrough - `strikethrough`
 
 [tc]: http://textcase.app
+[release]: https://github.com/chrishannah/textcase-cli/releases/latest
