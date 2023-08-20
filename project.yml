@@ -13,7 +13,7 @@ targets:
     deploymentTarget: "13.0"
     sources: TextCase
     dependencies:
-      - framework: TextCaseKit
+      - framework: Sources/TextCaseKit
   TextCaseKit:
     type: framework
     platform: macOS
