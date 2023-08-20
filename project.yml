@@ -1,0 +1,30 @@
+name: Text Case
+options:
+  bundleIdPrefix: me.chrishannah
+  createIntermediateGroups: true
+fileGroups:
+- project.yml
+settings:
+    GENERATE_INFOPLIST_FILE: YES
+targets:
+  textcase:
+    type: tool
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources: TextCase
+    dependencies:
+      - framework: TextCaseKit
+  TextCaseKit:
+    type: framework
+    platform: macOS
+    sources: TextCaseKit
+    scheme:
+      testTargets:
+      - TextCaseKitTests
+  TextCaseKitTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: TextCaseKitTests
+    dependencies:
+      - target: TextCaseKit
