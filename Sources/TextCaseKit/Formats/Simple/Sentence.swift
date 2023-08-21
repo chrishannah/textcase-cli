@@ -1,7 +1,7 @@
 import Foundation
 
 public final class Sentence: Format {
-    
+
     public var name: String = "Sentence Case"
     public var description: String = "Capitalise text as a sentence."
 
@@ -64,7 +64,7 @@ public final class Sentence: Format {
         tagger.enumerateTags(
             in: NSRange(location: 0, length: NSString(string: capitalise).length),
             scheme: NSLinguisticTagScheme.nameType, options: options) { tag, tokenRange, _, _ in
-            var token = NSString(string: capitalise).substring(with: tokenRange)
+            let token = NSString(string: capitalise).substring(with: tokenRange)
 
             if tag?.rawValue == "PlaceName" || tag?.rawValue == "PersonalName"
                 || tag? .rawValue == "OrganizationalName" {
