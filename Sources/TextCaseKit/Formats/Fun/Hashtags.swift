@@ -4,6 +4,7 @@ public final class Hashtags: Format {
     
     public var name: String = "Hashtags"
     public var description: String = "Convert words into hashtags."
+    public var id: String = "hashtags"
 
     public init() {}
 

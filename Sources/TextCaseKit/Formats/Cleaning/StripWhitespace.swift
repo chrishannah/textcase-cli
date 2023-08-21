@@ -1,9 +1,10 @@
 import Foundation
 
 public final class StripWhitespace: Format {
-    
+
     public var name: String = "Strip Whitespace"
     public var description: String = "Remove all whitespace."
+    public var id: String = "stripWhitespace"
 
     public init() {}
 

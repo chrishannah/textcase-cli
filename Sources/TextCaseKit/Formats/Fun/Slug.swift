@@ -4,6 +4,7 @@ public final class Slug: Format {
     
     public var name: String = "Slug"
     public var description: String = "Convert the text into a slug."
+    public var id: String = "slug"
 
     public init() {}
 

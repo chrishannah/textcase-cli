@@ -4,6 +4,7 @@ public final class StripHTML: Format {
     
     public var name: String = "Strip HTML"
     public var description: String = "Strip all HTML tags."
+    public var id: String = "stripHTML"
 
     public init() {}
 

@@ -4,6 +4,7 @@ public final class Rot13: Format {
     
     public var name: String = "Rot13"
     public var description: String = "Reverse all characters."
+    public var id: String = "rot13"
 
     public init() {}
 

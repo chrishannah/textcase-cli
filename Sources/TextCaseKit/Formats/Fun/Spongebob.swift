@@ -5,6 +5,7 @@ public final class Spongebob: Format {
     public var name: String = "Mocking Spongebob"
     public var description: String =
         "Turn your words into something a sacrastic Spongebob would say"
+    public var id: String = "mockingSpongebob"
 
     public init() {}
 

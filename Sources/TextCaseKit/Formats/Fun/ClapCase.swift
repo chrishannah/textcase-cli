@@ -4,6 +4,7 @@ public final class ClapCase: Format {
     
     public var name: String = "Clap Case"
     public var description: String = "Put 👏 between every word."
+    public var id: String = "clapCase"
 
     public init() {}
 

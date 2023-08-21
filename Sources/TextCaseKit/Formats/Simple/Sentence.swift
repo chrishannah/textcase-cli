@@ -4,6 +4,7 @@ public final class Sentence: Format {
 
     public var name: String = "Sentence Case"
     public var description: String = "Capitalise text as a sentence."
+    public var id: String = "sentence"
 
     public init() {}
 

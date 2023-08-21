@@ -4,6 +4,7 @@ public final class Uppercase: Format {
     
     public var name: String = "Uppercase"
     public var description: String = "Make all characters uppercase."
+    public var id: String = "uppercase"
 
     public init() {}
 

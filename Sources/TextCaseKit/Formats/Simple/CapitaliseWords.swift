@@ -4,6 +4,7 @@ public final class CapitaliseWords: Format {
     
     public var name: String = "Capitalise Words"
     public var description: String = "Capitalise all words."
+    public var id: String = "capitaliseWords"
 
     public init() {}
 

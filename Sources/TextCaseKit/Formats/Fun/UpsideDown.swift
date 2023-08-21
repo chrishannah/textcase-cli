@@ -4,6 +4,7 @@ public final class UpsideDown: Format {
     
     public var name: String = "Upside Down"
     public var description: String = "Flip all characters."
+    public var id: String = "upsideDown"
 
     public init() {}
 

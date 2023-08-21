@@ -4,6 +4,7 @@ public final class SmallCaps: Format {
    
     public var name: String = "Small Caps"
     public var description: String = "Convert all characters into small capital characters."
+    public var id: String = "smallCaps"
 
     public init() {}
 
