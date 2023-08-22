@@ -5,12 +5,17 @@ let VERSION = "1.0"
 
 func help() {
     let helpText = """
-    USAGE: textcase [--format <format] [--input <input>]
+    NAME
+        textcase - Format text into a specified format.
 
-    OPTIONS:
+    OPTIONS
         -h --help           Prints this help text.
         -v --version        Get the version number.
         -l --listFormats    Lists all available formats.
+    
+    USAGE
+        textcase [--format <format] [--input <input>]
+
     """
     print(helpText)
 }
