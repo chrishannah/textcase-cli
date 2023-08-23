@@ -15,4 +15,13 @@ public final class FormatRepository {
             Sentence(),
         ]
     }
+
+    public func format(for identifier: String) -> Format? {
+        for format in getAllFormats() {
+            if format.id == identifier {
+                return format
+            }
+        }
+        return nil
+    }
 }

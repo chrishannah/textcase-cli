@@ -14,7 +14,7 @@ func help() {
         -l --listFormats    Lists all available formats.
 
     USAGE
-        textcase [--format <format] [--input <input>]
+        textcase [--format <format>] [--input <input>]
 
     """
     print(helpText)
@@ -51,9 +51,57 @@ func process(arguments: [String]) {
     for commandOption in commandOptions {
         if first == commandOption.short || first == commandOption.long {
             commandOption.handler()
-            break
+            return
         }
     }
+
+    // Format text
+    guard let format = resolveFormat(arguments: args) else {
+        return
+    }
+    guard let input = resolveInput(arguments: args) else {
+        return
+    }
+    let formatted = format.process(input)
+    print(formatted)
+}
+
+func resolveFormat(arguments: [String]) -> Format? {
+    let formatOption = "--format"
+    let formatRepository = FormatRepository()
+
+    for (i, arg) in arguments.enumerated() {
+        guard arg == formatOption else {
+            continue
+        }
+        guard arguments.count > i + 1 else {
+            break
+        }
+        let identifier = arguments[i + 1]
+        guard let format = formatRepository.format(for: identifier) else {
+            print("Format not found, use textcase --listFormats to see the full list of available formats.")
+            return nil
+        }
+        return format
+    }
+    print("Format not specified, use textcase --help to see the proper syntax.")
+    return nil
+}
+
+func resolveInput(arguments: [String]) -> String? {
+    let inputOption = "--input"
+
+    for (i, arg) in arguments.enumerated() {
+        guard arg == inputOption else {
+            continue
+        }
+        guard arguments.count > i + 1 else {
+            break
+        }
+        return arguments[i + 1]
+    }
+    print("Input not provided, use textcase --help to see the proper syntax.")
+    return nil
 }
 
 func buildCommandOptions() -> [CommandOption] {
