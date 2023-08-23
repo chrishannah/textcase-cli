@@ -4,7 +4,7 @@ public final class FormatRepository {
     public init() {}
 
     public func getAllFormats() -> [Format] {
-        return [
+        [
             // Cleaning
             StripHTML(), StripWhitespace(), TrimWhitespace(),
             // Fun
