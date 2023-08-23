@@ -2,7 +2,6 @@ import TextCaseKit
 import XCTest
 
 class CleaningFormatTests: FormatTestBase {
-
     func testStripHTML() throws {
         let inputs = ["<a>text</a>", "<p></p>", "<p><strong>hello</strong></p>"]
         let outputs: [String] = performFormatterTest(format: StripHTML(), inputs: inputs)
@@ -10,8 +9,8 @@ class CleaningFormatTests: FormatTestBase {
         XCTAssertEqual(outputs[1], "")
         XCTAssertEqual(outputs[2], "hello")
 
-        self.measure {
-            for _ in 1...10 {
+        measure {
+            for _ in 1 ... 10 {
                 _ = performFormatterTest(format: StripHTML())
             }
         }
@@ -24,8 +23,8 @@ class CleaningFormatTests: FormatTestBase {
         XCTAssertEqual(outputs[1], "hello")
         XCTAssertEqual(outputs[2], "HelloWorld")
 
-        self.measure {
-            for _ in 1...10 {
+        measure {
+            for _ in 1 ... 10 {
                 _ = performFormatterTest(format: StripWhitespace())
             }
         }
@@ -38,8 +37,8 @@ class CleaningFormatTests: FormatTestBase {
         XCTAssertEqual(outputs[1], "hello")
         XCTAssertEqual(outputs[2], "Hello World")
 
-        self.measure {
-            for _ in 1...10 {
+        measure {
+            for _ in 1 ... 10 {
                 _ = performFormatterTest(format: TrimWhitespace())
             }
         }

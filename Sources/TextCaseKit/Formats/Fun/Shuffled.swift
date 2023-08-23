@@ -1,7 +1,6 @@
 import Foundation
 
 public final class Shuffled: Format {
-    
     public var name: String = "Shuffled"
     public var description: String = "Shuffle all characters."
     public var id: String = "shuffled"
@@ -12,5 +11,4 @@ public final class Shuffled: Format {
         guard !input.isEmpty else { return "" }
         return String(input.shuffled())
     }
-
 }

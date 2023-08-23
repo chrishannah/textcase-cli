@@ -13,11 +13,13 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "TextCase",
-            dependencies: ["TextCaseKit"]),
+            dependencies: ["TextCaseKit"]
+        ),
         .target(
             name: "TextCaseKit"),
         .testTarget(
             name: "TextCaseKitTests",
-            dependencies: ["TextCaseKit"]),
+            dependencies: ["TextCaseKit"]
+        ),
     ]
 )

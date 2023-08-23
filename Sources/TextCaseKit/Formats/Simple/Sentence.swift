@@ -1,7 +1,6 @@
 import Foundation
 
 public final class Sentence: Format {
-
     public var name: String = "Sentence Case"
     public var description: String = "Capitalise text as a sentence."
     public var id: String = "sentence"
@@ -18,17 +17,18 @@ public final class Sentence: Format {
         var capitalise = input.lowercased()
 
         // first character
-        let firstCharIndexRange = capitalise.startIndex...capitalise.startIndex
+        let firstCharIndexRange = capitalise.startIndex ... capitalise.startIndex
         let firstChar = capitalise[firstCharIndexRange]
         capitalise = capitalise.replacingCharacters(
-            in: firstCharIndexRange, with: firstChar.uppercased())
+            in: firstCharIndexRange, with: firstChar.uppercased()
+        )
 
         // find terminators
         let terminators: [Character] = [".", "?", "!"]
 
         for terminator in terminators {
             var periods: [String.Index] = []
-            for i in 0..<capitalise.count {
+            for i in 0 ..< capitalise.count {
                 let index = capitalise.index(capitalise.startIndex, offsetBy: i)
                 if capitalise[index] == terminator {
                     periods.append(index)
@@ -41,7 +41,7 @@ public final class Sentence: Format {
                     break
                 }
 
-                for i in 0..<3 {
+                for i in 0 ..< 3 {
                     let offsetIndex = capitalise.index(periodIndex, offsetBy: i)
 
                     if offsetIndex == capitalise.endIndex {
@@ -49,8 +49,9 @@ public final class Sentence: Format {
                     } else {
                         if capitalise[offsetIndex] != " " {
                             capitalise = capitalise.replacingCharacters(
-                                in: offsetIndex...offsetIndex,
-                                with: "\(capitalise[offsetIndex])".uppercased())
+                                in: offsetIndex ... offsetIndex,
+                                with: "\(capitalise[offsetIndex])".uppercased()
+                            )
                         }
                     }
                 }
@@ -64,11 +65,13 @@ public final class Sentence: Format {
         tagger.string = capitalise
         tagger.enumerateTags(
             in: NSRange(location: 0, length: NSString(string: capitalise).length),
-            scheme: NSLinguisticTagScheme.nameType, options: options) { tag, tokenRange, _, _ in
+            scheme: NSLinguisticTagScheme.nameType, options: options
+        ) { tag, tokenRange, _, _ in
             let token = NSString(string: capitalise).substring(with: tokenRange)
 
             if tag?.rawValue == "PlaceName" || tag?.rawValue == "PersonalName"
-                || tag? .rawValue == "OrganizationalName" {
+                || tag?.rawValue == "OrganizationalName"
+            {
                 words.append(token.capitalized)
             } else {
                 words.append(token)
@@ -77,5 +80,4 @@ public final class Sentence: Format {
 
         return words.joined()
     }
-
 }

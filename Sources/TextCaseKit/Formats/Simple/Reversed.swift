@@ -1,7 +1,6 @@
 import Foundation
 
 public final class Reversed: Format {
-   
     public var name: String = "Reversed"
     public var description: String = "Reverse all characters."
     public var id: String = "reversed"

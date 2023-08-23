@@ -1,7 +1,6 @@
 import Foundation
 
 public final class StripHTML: Format {
-    
     public var name: String = "Strip HTML"
     public var description: String = "Strip all HTML tags."
     public var id: String = "stripHTML"
@@ -12,10 +11,9 @@ public final class StripHTML: Format {
         guard !input.isEmpty else { return "" }
 
         let regex = "<[^>]+>"
-        
+
         return input
             .replacingOccurrences(of: regex, with: "", options: .regularExpression, range: nil)
             .trimmingCharacters(in: .whitespacesAndNewlines)
     }
-
 }

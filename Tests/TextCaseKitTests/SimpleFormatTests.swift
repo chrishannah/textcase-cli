@@ -2,7 +2,6 @@ import TextCaseKit
 import XCTest
 
 final class SimpleFormatTests: FormatTestBase {
-
     func testReversed() throws {
         let outputs: [String] = performFormatterTest(format: Reversed())
         XCTAssertEqual(outputs[0], "dlroW ,olleH")
@@ -13,8 +12,8 @@ final class SimpleFormatTests: FormatTestBase {
         XCTAssertEqual(outputs[5], "esac_ekans")
         XCTAssertEqual(outputs[6], ".ecnetnes a si sihT")
 
-        self.measure {
-            for _ in 1...10 {
+        measure {
+            for _ in 1 ... 10 {
                 _ = performFormatterTest(format: Reversed())
             }
         }
@@ -30,8 +29,8 @@ final class SimpleFormatTests: FormatTestBase {
         XCTAssertEqual(outputs[5], "Snake_case")
         XCTAssertEqual(outputs[6], "This is a sentence.")
 
-        self.measure {
-            for _ in 1...10 {
+        measure {
+            for _ in 1 ... 10 {
                 _ = performFormatterTest(format: Capitalise())
             }
         }
@@ -47,8 +46,8 @@ final class SimpleFormatTests: FormatTestBase {
         XCTAssertEqual(outputs[5], "Snake_Case")
         XCTAssertEqual(outputs[6], "This Is A Sentence.")
 
-        self.measure {
-            for _ in 1...10 {
+        measure {
+            for _ in 1 ... 10 {
                 _ = performFormatterTest(format: CapitaliseWords())
             }
         }
@@ -64,8 +63,8 @@ final class SimpleFormatTests: FormatTestBase {
         XCTAssertEqual(outputs[5], "snake_case")
         XCTAssertEqual(outputs[6], "this is a sentence.")
 
-        self.measure {
-            for _ in 1...10 {
+        measure {
+            for _ in 1 ... 10 {
                 _ = performFormatterTest(format: Lowercase())
             }
         }
@@ -81,8 +80,8 @@ final class SimpleFormatTests: FormatTestBase {
         XCTAssertEqual(outputs[5], "SNAKE_CASE")
         XCTAssertEqual(outputs[6], "THIS IS A SENTENCE.")
 
-        self.measure {
-            for _ in 1...10 {
+        measure {
+            for _ in 1 ... 10 {
                 _ = performFormatterTest(format: Uppercase())
             }
         }
@@ -98,11 +97,10 @@ final class SimpleFormatTests: FormatTestBase {
         XCTAssertEqual(outputs[5], "Snake_case")
         XCTAssertEqual(outputs[6], "This is a sentence.")
 
-        self.measure {
-            for _ in 1...10 {
+        measure {
+            for _ in 1 ... 10 {
                 _ = performFormatterTest(format: Sentence())
             }
         }
     }
-
 }

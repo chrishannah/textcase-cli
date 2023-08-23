@@ -2,7 +2,6 @@ import TextCaseKit
 import XCTest
 
 class FormatTestBase: XCTestCase {
-
     private static let defaultInputs = [
         "Hello, World", "123456", "Test sentence. test sentence.", "3.14", "ABC", "snake_case",
         "This is a sentence.",
@@ -17,5 +16,4 @@ class FormatTestBase: XCTestCase {
         }
         return outputs
     }
-
 }

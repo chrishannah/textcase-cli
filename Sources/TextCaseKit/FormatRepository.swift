@@ -1,7 +1,6 @@
 import Foundation
 
 public final class FormatRepository {
-
     public init() {}
 
     public func getAllFormats() -> [Format] {
@@ -13,7 +12,7 @@ public final class FormatRepository {
             Spongebob(), UpsideDown(),
             // Simple
             Capitalise(), CapitaliseWords(), Lowercase(), Reversed(), Uppercase(),
-            Sentence()
+            Sentence(),
         ]
     }
 }

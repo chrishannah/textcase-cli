@@ -1,7 +1,6 @@
 import Foundation
 
 public final class CapitaliseWords: Format {
-    
     public var name: String = "Capitalise Words"
     public var description: String = "Capitalise all words."
     public var id: String = "capitaliseWords"
@@ -32,7 +31,7 @@ public final class CapitaliseWords: Format {
                 splitBuffer += character.description
             }
         }
-        
+
         splitOutput += splitBuffer.capitalized
 
         return splitOutput

@@ -1,7 +1,6 @@
 import Foundation
 
 public final class Spongebob: Format {
-    
     public var name: String = "Mocking Spongebob"
     public var description: String =
         "Turn your words into something a sacrastic Spongebob would say"
@@ -14,7 +13,7 @@ public final class Spongebob: Format {
         let text = input.lowercased()
         var spOnGEbOb = ""
 
-        let chanceOfCapital: UInt32 = 5  // Between 1 and 10
+        let chanceOfCapital: UInt32 = 5 // Between 1 and 10
         for character in text {
             var charString = character.description
             let random = arc4random_uniform(10)
@@ -26,5 +25,4 @@ public final class Spongebob: Format {
 
         return spOnGEbOb
     }
-
 }

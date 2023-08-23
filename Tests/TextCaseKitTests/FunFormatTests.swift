@@ -2,7 +2,6 @@ import TextCaseKit
 import XCTest
 
 final class FunFormatTests: FormatTestBase {
-
     func testClapCase() throws {
         let outputs: [String] = performFormatterTest(format: ClapCase())
         XCTAssertEqual(outputs[0], "Hello, 👏 World")
@@ -13,8 +12,8 @@ final class FunFormatTests: FormatTestBase {
         XCTAssertEqual(outputs[5], "snake 👏 case")
         XCTAssertEqual(outputs[6], "This 👏 is 👏 a 👏 sentence.")
 
-        self.measure {
-            for _ in 1...10 {
+        measure {
+            for _ in 1 ... 10 {
                 _ = performFormatterTest(format: ClapCase())
             }
         }
@@ -30,13 +29,13 @@ final class FunFormatTests: FormatTestBase {
         XCTAssertEqual(outputs[5], "#snake_case")
         XCTAssertEqual(outputs[6], "#This #is #a #sentence")
 
-        self.measure {
-            for _ in 1...10 {
+        measure {
+            for _ in 1 ... 10 {
                 _ = performFormatterTest(format: Hashtags())
             }
         }
     }
-    
+
     func testRot13() throws {
         let outputs: [String] = performFormatterTest(format: Rot13())
         XCTAssertEqual(outputs[0], "Uryyb, Jbeyq")
@@ -47,13 +46,13 @@ final class FunFormatTests: FormatTestBase {
         XCTAssertEqual(outputs[5], "fanxr_pnfr")
         XCTAssertEqual(outputs[6], "Guvf vf n fragrapr.")
 
-        self.measure {
-            for _ in 1...10 {
+        measure {
+            for _ in 1 ... 10 {
                 _ = performFormatterTest(format: Rot13())
             }
         }
     }
-    
+
     func testShuffled() throws {
         let inputs: [String] = ["hello", "snake", "beer bear"]
         for input in inputs {
@@ -62,11 +61,10 @@ final class FunFormatTests: FormatTestBase {
             XCTAssertEqual(input.count, output.count)
         }
 
-        self.measure {
-            for _ in 1...10 {
+        measure {
+            for _ in 1 ... 10 {
                 _ = performFormatterTest(format: Shuffled())
             }
         }
     }
-
 }

@@ -1,7 +1,6 @@
 import Foundation
 
 public final class Capitalise: Format {
-    
     public var name: String = "Capitalise"
     public var description: String = "Capitalise the first letter."
     public var id: String = "capitalise"
@@ -14,14 +13,15 @@ public final class Capitalise: Format {
         var capitalise = input
 
         // first character
-        let firstCharIndexRange = capitalise.startIndex...capitalise.startIndex
+        let firstCharIndexRange = capitalise.startIndex ... capitalise.startIndex
         let firstChar = capitalise[firstCharIndexRange]
         capitalise = capitalise.replacingCharacters(
-            in: firstCharIndexRange, with: firstChar.uppercased())
+            in: firstCharIndexRange, with: firstChar.uppercased()
+        )
 
         // find periods
         var periods: [String.Index] = []
-        for i in 0..<capitalise.count {
+        for i in 0 ..< capitalise.count {
             let index = capitalise.index(capitalise.startIndex, offsetBy: i)
             if capitalise[index] == "." {
                 periods.append(index)
@@ -34,7 +34,7 @@ public final class Capitalise: Format {
                 break
             }
 
-            for i in 0..<3 {
+            for i in 0 ..< 3 {
                 let offsetIndex = capitalise.index(periodIndex, offsetBy: i)
 
                 if offsetIndex == capitalise.endIndex {
@@ -42,8 +42,9 @@ public final class Capitalise: Format {
                 } else {
                     if capitalise[offsetIndex] != " " {
                         capitalise = capitalise.replacingCharacters(
-                            in: offsetIndex...offsetIndex,
-                            with: "\(capitalise[offsetIndex])".uppercased())
+                            in: offsetIndex ... offsetIndex,
+                            with: "\(capitalise[offsetIndex])".uppercased()
+                        )
                     }
                 }
             }
