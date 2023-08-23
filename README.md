@@ -9,6 +9,8 @@ Just as a warning, a lot of this code was copied from older rewrites of Text Cas
 
 ## Can I use it?
 
-Right now, you can build from source (maybe?). Eventually, I plan on distributing via Homebrew.
+Right now, you can build from source and use it (run `swift build` in the root directory, and you'll find it at `.build/debug/TextCase`). 
+
+Eventually, I plan on distributing via Homebrew.
 
 [tc]: http://textcase.app
