@@ -13,8 +13,15 @@ func help() {
         -v --version        Get the version number.
         -l --listFormats    Lists all available formats.
 
+        --format <format>   Format to be used.
+        --input <input>     Text to be formatted.
+        --in <file>         Path of file to be used as input.
+        --out <file>        Path of file to be used as output.
+
     USAGE
         textcase [--format <format>] [--input <input>]
+        textcase [--format <format>] [--input <input>] [--out <path>]
+        textcase [--format <format>] [--in <path>] [--out <path>]
 
     """
     print(helpText, to: &outputStream)
@@ -63,21 +70,13 @@ func process(arguments: [String]) {
         return
     }
     let formatted = format.process(input)
-    print(formatted, to: &outputStream)
+    returnFormattedText(formatted, arguments: args)
 }
 
 func resolveFormat(arguments: [String]) -> Format? {
-    let formatOption = "--format"
     let formatRepository = FormatRepository()
 
-    for (i, arg) in arguments.enumerated() {
-        guard arg == formatOption else {
-            continue
-        }
-        guard arguments.count > i + 1 else {
-            break
-        }
-        let identifier = arguments[i + 1]
+    if let identifier = getArgValue(for: "--format", in: arguments) {
         guard let format = formatRepository.format(for: identifier) else {
             print("Format not found, use textcase --listFormats to see the full list of available formats.",
                   to: &errorOutputStream)
@@ -90,10 +89,38 @@ func resolveFormat(arguments: [String]) -> Format? {
 }
 
 func resolveInput(arguments: [String]) -> String? {
-    let inputOption = "--input"
+    if let input = getArgValue(for: "--input", in: arguments) {
+        return input
+    }
+    if let path = getArgValue(for: "--in", in: arguments) {
+        do {
+            return try String(contentsOfFile: path, encoding: .utf8)
+        } catch {
+            print("Error reading file from path", to: &errorOutputStream)
+            print(error.localizedDescription)
+        }
+    }
+    print("Input not provided, use textcase --help to see the proper syntax.", to: &errorOutputStream)
+    return nil
+}
 
+func returnFormattedText(_ text: String, arguments: [String]) {
+    if let path = getArgValue(for: "--out", in: arguments) {
+        do {
+            try text.write(toFile: path, atomically: true, encoding: .utf8)
+            return
+        } catch {
+            print("Error writing to file", to: &errorOutputStream)
+            print(error.localizedDescription, to: &errorOutputStream)
+        }
+    }
+
+    print(text, to: &outputStream)
+}
+
+func getArgValue(for argument: String, in arguments: [String]) -> String? {
     for (i, arg) in arguments.enumerated() {
-        guard arg == inputOption else {
+        guard arg == argument else {
             continue
         }
         guard arguments.count > i + 1 else {
@@ -101,7 +128,6 @@ func resolveInput(arguments: [String]) -> String? {
         }
         return arguments[i + 1]
     }
-    print("Input not provided, use textcase --help to see the proper syntax.", to: &errorOutputStream)
     return nil
 }
 
