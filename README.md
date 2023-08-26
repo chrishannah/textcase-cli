@@ -7,10 +7,14 @@ This project is a related tool, but essentialy a minor rewrite of the text trans
 
 Just as a warning, a lot of this code was copied from older rewrites of Text Case, it's not exactly in a finished state. I'll be working on refactoring the existing formats, adding more, and in general making the code/tool better.
 
-## Can I use it?
+## Install
 
-Right now, you can build from source and use it (run `swift build` in the root directory, and you'll find it at `.build/debug/TextCase`). 
+You can, of course, checkout and build this project by running `swift build`, but if you want to make your life a bit easier, you can install Text Case CLI via a custom [Homebrew][hb] tap:
 
-Eventually, I plan on distributing via Homebrew.
+```
+brew tap chrishannah/textcase
+brew install chrishannah
+```
 
 [tc]: http://textcase.app
+[hb]: https://brew.sh
