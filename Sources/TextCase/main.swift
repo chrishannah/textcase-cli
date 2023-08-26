@@ -17,7 +17,7 @@ func help() {
         textcase [--format <format>] [--input <input>]
 
     """
-    print(helpText)
+    print(helpText, to: &outputStream)
 }
 
 func version() {
@@ -26,9 +26,9 @@ func version() {
 
 func listFormats() {
     let formatRepository = FormatRepository()
-    print("Formats:")
+    print("Formats:", to: &outputStream)
     for format in formatRepository.getAllFormats() {
-        print("    \(format.id) - \(format.description)")
+        print("    \(format.id) - \(format.description)", to: &outputStream)
     }
 }
 
@@ -63,7 +63,7 @@ func process(arguments: [String]) {
         return
     }
     let formatted = format.process(input)
-    print(formatted)
+    print(formatted, to: &outputStream)
 }
 
 func resolveFormat(arguments: [String]) -> Format? {
@@ -79,12 +79,13 @@ func resolveFormat(arguments: [String]) -> Format? {
         }
         let identifier = arguments[i + 1]
         guard let format = formatRepository.format(for: identifier) else {
-            print("Format not found, use textcase --listFormats to see the full list of available formats.")
+            print("Format not found, use textcase --listFormats to see the full list of available formats.",
+                  to: &errorOutputStream)
             return nil
         }
         return format
     }
-    print("Format not specified, use textcase --help to see the proper syntax.")
+    print("Format not specified, use textcase --help to see the proper syntax.", to: &errorOutputStream)
     return nil
 }
 
@@ -100,7 +101,7 @@ func resolveInput(arguments: [String]) -> String? {
         }
         return arguments[i + 1]
     }
-    print("Input not provided, use textcase --help to see the proper syntax.")
+    print("Input not provided, use textcase --help to see the proper syntax.", to: &errorOutputStream)
     return nil
 }
 
