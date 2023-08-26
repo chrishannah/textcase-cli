@@ -19,9 +19,17 @@ func help() {
         --out <file>        Path of file to be used as output.
 
     USAGE
-        textcase [--format <format>] [--input <input>]
-        textcase [--format <format>] [--input <input>] [--out <path>]
-        textcase [--format <format>] [--in <path>] [--out <path>]
+        textcase [--format <format>] [--input <input> | --in <file>] [--out <path>]
+
+
+    INPUT
+        You can pass an input string to be formatted in three ways. Pass a string
+        with the --input option, a path to a file with the --in option, or you can 
+        pipe in input from stdin.
+
+    OUTPUT
+        By default the formatted text will be sent to stdout. But you can override
+        this by specifying a file path with the --out option.
 
     """
     print(helpText, to: &outputStream)
@@ -100,6 +108,10 @@ func resolveInput(arguments: [String]) -> String? {
             print(error.localizedDescription)
         }
     }
+    if let input = readLine(strippingNewline: false) {
+        return input
+    }
+
     print("Input not provided, use textcase --help to see the proper syntax.", to: &errorOutputStream)
     return nil
 }
