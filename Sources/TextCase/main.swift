@@ -40,9 +40,9 @@ func version() {
 }
 
 func listFormats() {
-    let formatRepository = FormatRepository()
-    print("Formats:", to: &outputStream)
-    for format in formatRepository.getAllFormats() {
+    let formats = FormatRepository().getAllFormats()
+    print("Formats (\(formats.count)):", to: &outputStream)
+    for format in formats {
         print("    \(format.id) - \(format.description)", to: &outputStream)
     }
 }
