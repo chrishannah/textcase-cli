@@ -15,6 +15,10 @@ public final class FormatRepository {
             Sentence(),
             // Programming
             CamelCase(), PascalCase(), SnakeCase(), KebabCase(),
+            // Fonts
+            BoldSerif(), BoldSansSerif(), Italic(), ItalicBoldSerif(), ItalicBoldSansSerif(),
+            Gothic(), Strikethrough(), Script(),
+            LettersInCirclesFilled(), LettersInCirclesOutline(), LettersInSquaresFilled(), LettersInSquaresOutline(),
         ]
     }
 

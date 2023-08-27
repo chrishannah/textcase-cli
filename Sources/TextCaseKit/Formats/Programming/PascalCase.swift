@@ -3,7 +3,7 @@ import Foundation
 public final class PascalCase: Format {
     public var name: String = "Pascal Case"
     public var description: String = "Capitalise the first letter of each word, and join together."
-    public var id: String = "pascalCase"
+    public var id: String = "pascalCaseF"
 
     private let capitals = [
         "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
