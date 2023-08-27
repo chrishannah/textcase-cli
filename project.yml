@@ -11,13 +11,13 @@ targets:
     type: tool
     platform: macOS
     deploymentTarget: "13.0"
-    sources: TextCase
+    sources: Sources/TextCase
     dependencies:
-      - framework: Sources/TextCaseKit
+      - framework: TextCaseKit
   TextCaseKit:
     type: framework
     platform: macOS
-    sources: TextCaseKit
+    sources: Sources/TextCaseKit
     scheme:
       testTargets:
       - TextCaseKitTests
@@ -25,6 +25,6 @@ targets:
     type: bundle.unit-test
     platform: macOS
     sources:
-      - path: TextCaseKitTests
+      - path: Tests/TextCaseKitTests
     dependencies:
       - target: TextCaseKit

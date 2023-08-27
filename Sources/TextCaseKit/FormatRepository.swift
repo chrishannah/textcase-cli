@@ -13,6 +13,8 @@ public final class FormatRepository {
             // Simple
             Capitalise(), CapitaliseWords(), Lowercase(), Reversed(), Uppercase(),
             Sentence(),
+            // Programming
+            CamelCase(), PascalCase(), SnakeCase(), KebabCase(),
         ]
     }
 
