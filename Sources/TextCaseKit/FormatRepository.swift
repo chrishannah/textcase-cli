@@ -15,6 +15,8 @@ public final class FormatRepository {
             Sentence(),
             // Programming
             CamelCase(), PascalCase(), SnakeCase(), KebabCase(),
+            // Base64
+            EncodeBase64(), DecodeBase64(),
             // Fonts
             BoldSerif(), BoldSansSerif(), Italic(), ItalicBoldSerif(), ItalicBoldSansSerif(),
             Gothic(), Strikethrough(), Script(),

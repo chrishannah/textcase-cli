@@ -41,9 +41,19 @@ func version() {
 
 func listFormats() {
     let formats = FormatRepository().getAllFormats()
+    var maxFormatIdentifierLength = 0
     print("Formats (\(formats.count)):", to: &outputStream)
     for format in formats {
-        print("    \(format.id) - \(format.description)", to: &outputStream)
+        if format.id.count > maxFormatIdentifierLength {
+            maxFormatIdentifierLength = format.id.count
+        }
+    }
+    for format in formats {
+        let formatLine = String(repeating: " ", count: 4)
+            .appending(format.id)
+            .appending(String(repeating: " ", count: 2 + (maxFormatIdentifierLength - format.id.count)))
+            .appending(format.description)
+        print(formatLine, to: &outputStream)
     }
 }
 
