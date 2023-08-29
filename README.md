@@ -13,7 +13,7 @@ You can, of course, checkout and build this project by running `swift build`, bu
 
 ```
 brew tap chrishannah/textcase
-brew install chrishannah
+brew install textcase
 ```
 
 [tc]: http://textcase.app
