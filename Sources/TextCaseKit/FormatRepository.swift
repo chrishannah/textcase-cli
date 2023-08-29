@@ -13,6 +13,14 @@ public final class FormatRepository {
             // Simple
             Capitalise(), CapitaliseWords(), Lowercase(), Reversed(), Uppercase(),
             Sentence(),
+            // Programming
+            CamelCase(), PascalCase(), SnakeCase(), KebabCase(),
+            // Base64
+            EncodeBase64(), DecodeBase64(),
+            // Fonts
+            BoldSerif(), BoldSansSerif(), Italic(), ItalicBoldSerif(), ItalicBoldSansSerif(),
+            Gothic(), Strikethrough(), Script(),
+            LettersInCirclesFilled(), LettersInCirclesOutline(), LettersInSquaresFilled(), LettersInSquaresOutline(),
         ]
     }
 
