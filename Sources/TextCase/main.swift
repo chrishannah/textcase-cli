@@ -1,7 +1,7 @@
 import Foundation
 import TextCaseKit
 
-let VERSION = "1.0"
+let VERSION = "1.1"
 
 func help() {
     let helpText = """
