@@ -1,4 +1,5 @@
-# Text Case CLI
+![Text Case CLI](logo.jpeg)
+
 *A command line interface version of Text Case.*
 
 [Text Case][tc] is a text-transformation app for iOS, iPadOS, and macOS (by me). This project is essentially a subset of the functionality, made available as a command-line tool.
