@@ -21,6 +21,9 @@ public final class FormatRepository {
             BoldSerif(), BoldSansSerif(), Italic(), ItalicBoldSerif(), ItalicBoldSansSerif(),
             Gothic(), Strikethrough(), Script(),
             LettersInCirclesFilled(), LettersInCirclesOutline(), LettersInSquaresFilled(), LettersInSquaresOutline(),
+            // Title
+            AMATitleCase(), APTitleCase(), APATitleCase(), BluebookTitleCase(), CMOSTitleCase(),
+            GuardianTitleCase(), MLATitleCase(), NYTTitleCase(), WikipediaTitleCase(),
         ]
     }
 
