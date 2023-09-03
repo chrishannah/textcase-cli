@@ -24,7 +24,7 @@ public class BaseTitleCase {
         previousWordEndsWithEndMark = false
 
         guard !input.isEmpty else { return "" }
-        var text = input
+        var text = input.lowercased()
 
         let scanner = Scanner(string: text)
         scanner.caseSensitive = true
@@ -154,6 +154,11 @@ public class BaseTitleCase {
             word = word.capitalized
         }
 
+        // Lowercase all words that have explicitly been marked to be so
+        if wordsToNeverBeCapitalised.contains(word.lowercased()) {
+            word = word.lowercased()
+        }
+
         // Capitalise all words after an end mark or a few extra punctuation marks
         if configuration.shouldCapitaliseAfterEndPunctionation, previousWordEndsWithEndMark {
             word = word.capitalized
@@ -164,11 +169,6 @@ public class BaseTitleCase {
         if let char = word.last {
             let charsToLookFor = ["!", "?", ".", ":"]
             previousWordEndsWithEndMark = charsToLookFor.contains(String(char))
-        }
-
-        // Lowercase all words that have explicitly been marked to be so
-        if wordsToNeverBeCapitalised.contains(word.lowercased()) {
-            word = word.lowercased()
         }
 
         // Capitalise all words above a specific length
