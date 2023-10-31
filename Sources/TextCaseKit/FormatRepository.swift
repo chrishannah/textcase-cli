@@ -24,6 +24,9 @@ public final class FormatRepository {
             // Title
             AMATitleCase(), APTitleCase(), APATitleCase(), BluebookTitleCase(), CMOSTitleCase(),
             GuardianTitleCase(), MLATitleCase(), NYTTitleCase(), WikipediaTitleCase(),
+            // Counts
+            CountCharacters(), CountCharactersExcWhitespace(), CountWords(),
+            CountLines(), CountLinesExcBlanks()
         ]
     }
 
